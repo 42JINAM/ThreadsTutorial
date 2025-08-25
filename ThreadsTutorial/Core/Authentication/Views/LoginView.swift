@@ -16,23 +16,13 @@ struct LoginView: View {
             VStack {
                 Spacer()
                 Image("threads-app-icon")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 120, height: 120)
-                    .padding()
+                    .threadsMainIconStyle()
                 VStack {
                     TextField("Enter your email", text: $email)
-                        .font(.subheadline)
-                        .padding(12)
-                        .background(Color(.systemGray6))
-                        .cornerRadius(10)
-                        .padding(.horizontal, 24)
+                        .autocapitalization(.none)
+                        .modifier(ThreadsTextFieldModifier())
                     SecureField("Enter your password", text: $password)
-                        .font(.subheadline)
-                        .padding(12)
-                        .background(Color(.systemGray6))
-                        .cornerRadius(10)
-                        .padding(.horizontal, 24)
+                        .modifier(ThreadsTextFieldModifier())
                 }
                 NavigationLink{
                     Text("Forgot password")
@@ -50,12 +40,7 @@ struct LoginView: View {
                     
                 } label: {
                     Text("Login")
-                        .font(.subheadline)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                        .frame(width: 352, height: 44)
-                        .background(.black)
-                        .cornerRadius(8)
+                        .modifier(ThreadsButtonModifier())
                 }
                 Spacer()
                 Divider()

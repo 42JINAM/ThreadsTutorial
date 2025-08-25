@@ -12,54 +12,33 @@ struct RegistrationView: View {
     @State private var password = ""
     @State private var fullname = ""
     @State private var username = ""
+    
     var body: some View {
         VStack {
             Spacer()
+                .frame(height: 80)
             Image("threads-app-icon")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 120, height: 120)
-                .padding()
+                .threadsMainIconStyle()
             
             VStack {
                 TextField("Enter your email", text: $email)
-                    .font(.subheadline)
-                    .padding(12)
-                    .background(Color(.systemGray6))
-                    .cornerRadius(10)
-                    .padding(.horizontal, 24)
-                
+                    .modifier(ThreadsTextFieldModifier())
+                               
                 SecureField("Enter your password", text: $password)
-                    .font(.subheadline)
-                    .padding(12)
-                    .background(Color(.systemGray6))
-                    .cornerRadius(10)
-                    .padding(.horizontal, 24)
+                    .modifier(ThreadsTextFieldModifier())
                 
                 TextField("Enter your full name", text: $fullname)
-                    .font(.subheadline)
-                    .padding(12)
-                    .background(Color(.systemGray6))
-                    .cornerRadius(10)
-                    .padding(.horizontal, 24)
-                
+                    .modifier(ThreadsTextFieldModifier())
+               
                 TextField("Enter your username", text: $username)
-                    .font(.subheadline)
-                    .padding(12)
-                    .background(Color(.systemGray6))
-                    .cornerRadius(10)
-                    .padding(.horizontal, 24)
+                    .modifier(ThreadsTextFieldModifier())
                 
                 Button {
                     
                 } label: {
-                    Text("SignUp")
-                        .font(.subheadline)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                        .frame(width: 352, height: 44)
-                        .background(.black)
-                        .cornerRadius(8)
+                    Text("Sign Up")
+                        .modifier(ThreadsButtonModifier())
+
                 }
                 .padding(.vertical)
                 Spacer()
