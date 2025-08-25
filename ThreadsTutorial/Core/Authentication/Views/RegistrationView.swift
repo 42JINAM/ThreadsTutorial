@@ -12,6 +12,7 @@ struct RegistrationView: View {
     @State private var password = ""
     @State private var fullname = ""
     @State private var username = ""
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack {
@@ -34,6 +35,7 @@ struct RegistrationView: View {
                     .modifier(ThreadsTextFieldModifier())
                 
                 Button {
+                    dismiss()
                     
                 } label: {
                     Text("Sign Up")
